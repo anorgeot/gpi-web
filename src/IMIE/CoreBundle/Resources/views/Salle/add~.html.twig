@@ -1,0 +1,56 @@
+{# src/OC/PlatformBundle/Resources/views/Advert/form.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block stylesheets %}
+    {{parent()}}
+    {% stylesheets '@IMIECoreBundle/Resources/public/css/style.css' %}
+      <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+{% endblock %} 
+
+
+
+
+
+{% block  form %}
+
+    <div class="well">
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+          {# Les erreurs générales du formulaire. #}
+          {{ form_errors(form) }}
+        <div class="form-group">
+            {# Génération du label. #}
+            {{ form_label(form.nom, "Nom de la salle", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.nom) }}
+            <div class="col-sm-4">
+                {# Génération de l'input. #}
+                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+        {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+        {# Génération automatique des champs pas encore écrits.
+           Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+           et tous les champs cachés (type « hidden »). #}
+        {{ form_rest(form) }}
+        {# Fermeture de la balise <form> du formulaire HTML #}
+        {{ form_end(form) }}
+    </div>
+
+
+
+    <div class="container">
+        <h3>Ajout de salle</h3>
+        <form role="form">
+            <div class="form-group">
+                <label for="nom">Nom de la salle:</label>
+                <input type="text" class="form-control" id="nom" placeholder="Enter nom salle">
+            </div>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+
+{% endblock  %}

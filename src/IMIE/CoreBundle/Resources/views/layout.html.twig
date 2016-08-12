@@ -1,0 +1,76 @@
+{# src/IMIE/CoreBundle/Resources/views/layout.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+  Mon parc - {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{parent()}}
+    {% stylesheets '@IMIECoreBundle/Resources/public/css/style.css' %}
+      <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+{% endblock %} 
+
+{% block logout %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li>Connecté en tant que {{ app.user.username }}</li>
+                <li><a href="{{ path('fos_user_security_logout') }}" class="glyphicon glyphicon-log-out"></a></li>
+            </ul>
+        </div>       
+    {% endif %}
+{% endblock %} 
+
+
+{% block main %}
+    <div class="container" id="main">
+        <h1>{% block titre %}{% endblock %}</h1>
+        
+        <div class="row">
+            <!-- MENU -->
+            <div id="menu" class="col-sm-3">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <!-- MATERIEL -->
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="#">Gestion du parc</a></li>
+                            <li>{{ render(controller("IMIECoreBundle:Salle:menu")) }}</li><li>{{ include("IMIECoreBundle:Materiel:menu.html.twig") }}</li>
+
+                        </ul>
+                    </div>
+
+                    <div class="panel panel-default">                       
+                        <!-- PARAMETRE -->
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="#">Configuration</a></li>
+                            <li>{{ include("IMIECoreBundle:Materiel_type:menu.html.twig") }}</li>
+                            <li>{{ include("IMIECoreBundle:Composant:menu.html.twig") }}</li>
+                            <li>{{ include("IMIECoreBundle:Divers:menu.html.twig") }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- CONTENU -->
+            <div id="content" class="col-sm-9">
+                <!-- TABLEAU-->
+                {% block tableau %}
+                {% endblock %}
+                {% block form %}
+                {% endblock %}
+                <!-- BOUTONS-->
+                {% block imiecore_button %}
+                {% endblock %}                    
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    {%  javascripts '@IMIECoreBundle/Resources/public/js/tableau.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

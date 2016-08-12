@@ -1,0 +1,19 @@
+{# src/IMIE/CoreBundle/Resources/views/materiel/menu.html.twig #}
+
+{% extends "IMIECoreBundle:menu.html.twig" %}
+
+{% block id %}
+{{parent()}}composant
+{% endblock %}  
+
+
+{% block menu_collapse_title %}
+Composant
+{% endblock %}
+
+
+{% block menu_collapse_list %}
+{{parent()}}<a href="{{ path('imie_core_socket_index') }}">Socket</a></li>
+{{parent()}}<a href="{{ path('imie_core_processeur_index') }}">Processeur</a></li>
+{{parent()}}<a href="{{ path('imie_core_cm_index') }}">Carte mère</a></li>
+{% endblock %}

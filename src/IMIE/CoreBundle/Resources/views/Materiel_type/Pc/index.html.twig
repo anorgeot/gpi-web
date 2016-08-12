@@ -1,0 +1,67 @@
+{# src/IMIE/CoreBundle/Resources/views/Materiel_type/Pc/index.html.twig #}
+
+
+{% extends "IMIECoreBundle:index.html.twig" %}
+
+{% block title %}
+    Pc - {{ parent() }}
+{% endblock %}
+
+{% block title_table %}
+    Profil pc
+{% endblock %}
+ 
+
+{% block filtres_table %}
+<!--     <div class="filters" id="filters">
+    <h4 id="filtres_title">Les filtres</h4>
+    <div class="filter-content">
+        <span class="filter-button with-checkboxes filter-item" data-type="predefined" data-json-field="manufacturerId" >Marques</span>
+        <span class="filter-button-choice" style="display: none;">
+            {% for typePc in listTypePc %}
+                <li class="filter-button-item">
+                <input type="checkbox" id="{{ typePc.id }}" name="manufacturerId"  value="38" checked label for="manufacturerId-38"></input><label>{{ typePc.id }}</label>
+                </li>
+            {% endfor %}
+            <span class="filter-select-all-none" style="padding-left: 5%; display: inline-block;">
+            Choisir <a class="check-all" href="#">Tous</a> / <a class="check-none" href="#">Aucun</a>
+            </span>
+        </span>
+    </div>
+    <span id="reset-filters" class="sprite-v4 sprite-reintinalise" style="padding-left: 1%; color:var( --color2);">Réinitialiser</span>
+</div> -->
+{% endblock %}
+
+
+ 
+{% block imiecore_thead %}
+    {{ parent() }}
+    <th>Processeur</th>
+    <th>Carte Mere</th>
+    <th>Ram (Gb)</th>
+    <th>Disque dur (Gb)</th>
+{% endblock %}
+
+{% block imiecore_tbody %}
+    {% for typePc in listTypePc %}
+        <tr>
+            <td>{{typePc.id }}</td>
+            <td>{{typePc.type }}</td>
+            <td>{{typePc.constructeur.nom }}</td>
+            <td>{{typePc.nom }}</td> 
+            <td>{{typePc.processeur.constructeur.nom }} {{ typePc.processeur.nom }}</td>
+            <td>{{typePc.cm.constructeur.nom }} {{ typePc.cm.nom }}</td>
+            <td>{{typePc.ram }}</td> 
+            <td>{{typePc.disque }}</td>                                                 
+        </tr>
+    {% endfor %}
+{% endblock %}         
+{% block imiecore_button %}
+
+    <div id="panelButton" data-path="{{ path('imie_core_home')}}materiel_type/" data-cat="pc">
+        <a id="addLink" href="{{ path('imie_core_home')}}materiel_type/pc"> {{ include("IMIECoreBundle:Button:ajouter.html.twig") }}</a>
+        <a id="delLink" href="{{ path('imie_core_home')}}materiel_type/pc"> {{ include("IMIECoreBundle:Button:supprimer.html.twig") }}</a>
+        <a id="editLink" href="{{ path('imie_core_home')}}materiel_type/pc"> {{ include("IMIECoreBundle:Button:modifier.html.twig") }}</a>
+        <a id="genLink" href="{{ path('imie_core_home')}}materiel_type/pc">{{ include("IMIECoreBundle:Button:generer.html.twig") }}</a>
+    </div>          
+{% endblock %}

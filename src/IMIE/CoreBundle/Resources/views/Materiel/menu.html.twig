@@ -1,0 +1,24 @@
+{# src/IMIE/CoreBundle/Resources/views/materiel/menu.html.twig #}
+
+{% extends "IMIECoreBundle:menu.html.twig" %}
+
+{% block id %}
+{{parent()}}materiel
+{% endblock %}  
+
+
+{% block menu_collapse_title %}
+Catégorie
+{% endblock %}
+
+
+{% block menu_collapse_list %}
+{{parent()}}<a href="{{ path('imie_core_materiel_index',{'categorie':'Pc'}) }}">PC</a></li>
+{{parent()}}<a href="{{ path('imie_core_materiel_index',{'categorie':'Tactil'}) }}">Périphériques Tactils</a></li>
+{{parent()}}<a href="{{ path('imie_core_materiel_index',{'categorie':'Reseau'}) }}">Périphériques Reseaux</a></li>
+{{parent()}}<a href="{{ path('imie_core_materiel_index',{'categorie':'Peripherique'}) }}">Périphériques divers</a></li>
+{# {{parent()}}<a href="{{ path('imie_core_pc_index') }}">PC</a></li>
+{{parent()}}<a href="{{ path('imie_core_tactil_index') }}">Périphériques Tactils</a></li>
+{{parent()}}<a href="{{ path('imie_core_reseau_index') }}">Périphériques Reseaux</a></li>
+{{parent()}}<a href="{{ path('imie_core_peripherique_index') }}">Périphériques divers</a></li> #}
+{% endblock %}

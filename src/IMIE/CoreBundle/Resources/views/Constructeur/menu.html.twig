@@ -1,0 +1,20 @@
+{# src/IMIE/CoreBundle/Resources/views/Constructeur/menu.html.twig #}
+
+{# Ce template n'hérite de personne,
+   tout comme le template inclus avec {{ include() }}. #}
+
+<ul class="nav nav-pills nav-stacked">
+  {% for constructeur in listConstructeur %}
+    <li>
+        {{ constructeur.nom }}
+    </li>
+  {% else %}
+	  <li>Aucune constructeur enregistré</li>
+	  <li>constructeur A</li>
+	  <li>constructeur B</li>
+	  <li>constructeur C</li>
+	  <li>constructeur D</li>
+	  <li>constructeur E</li>
+  {% endfor %}
+
+</ul>

@@ -1,0 +1,200 @@
+#defaut
+imie_core_home :
+    path:      /
+    defaults:  
+        _controller: IMIECoreBundle:Materiel:salleIndex
+        idSalle: "all"
+
+
+# routeur salle
+imie_core_salle_index:
+    path:      /salle
+    defaults:  { _controller: IMIECoreBundle:Salle:index }
+
+imie_core_salle_menu:
+    path:      /salle/menu
+    defaults:  { _controller: IMIECoreBundle:Salle:menu }
+
+imie_core_salle_add:
+    path:      /salle/add
+    defaults:  { _controller: IMIECoreBundle:Salle:add }
+
+imie_core_salle_edit:
+    path:      /salle/edit/{id}
+    defaults:  { _controller: IMIECoreBundle:Salle:edit }
+
+
+imie_core_salle_delete:
+    path:      /salle/delete/{id}
+    defaults:  { _controller: IMIECoreBundle:Salle:delete }
+    requirements:
+        id: \d+
+
+# routeur constructeur
+imie_core_constructeur_index:
+    path:      /constructeur
+    defaults:  { _controller: IMIECoreBundle:Constructeur:index }
+
+imie_core_constructeur_add:
+    path:      /constructeur/add
+    defaults:  { _controller: IMIECoreBundle:Constructeur:add }
+
+imie_core_constructeur_edit:
+    path:      /constructeur/edit/{id}
+    defaults:  { _controller: IMIECoreBundle:Constructeur:edit }
+    requirements:
+        id: \d+
+
+imie_core_constructeur_delete:
+    path:      /constructeur/delete/{id}
+    defaults:  { _controller: IMIECoreBundle:Constructeur:delete }
+    requirements:
+        id: \d+
+
+
+# routeur pour les composants
+
+# routeur soket
+imie_core_socket_index:
+    path:      /socket
+    defaults:  { _controller: IMIECoreBundle:Socket:index }
+
+imie_core_socket_add:
+    path:      /socket/add
+    defaults:  { _controller: IMIECoreBundle:Socket:add }
+
+imie_core_socket_edit:
+    path:      /socket/edit/{id}
+    defaults:  { _controller: IMIECoreBundle:Socket:edit }
+    requirements:
+        id: \d+
+
+imie_core_socket_delete:
+    path:      /socket/delete/{id}
+    defaults:  { _controller: IMIECoreBundle:Socket:delete }
+    requirements:
+        id: \d+
+
+# routeur processeur
+imie_core_processeur_index:
+    path:      /processeur
+    defaults:  { _controller: IMIECoreBundle:Processeur:index }
+
+imie_core_processeur_add:
+    path:      /processeur/add
+    defaults:  { _controller: IMIECoreBundle:Processeur:add }
+
+imie_core_processeur_edit:
+    path:      /processeur/edit/{id}
+    defaults:  { _controller: IMIECoreBundle:Processeur:edit }
+    requirements:
+        id: \d+
+
+imie_core_processeur_delete:
+    path:      /processeur/delete/{id}
+    defaults:  { _controller: IMIECoreBundle:Processeur:delete }
+    requirements:
+        id: \d+
+
+# routeur cm
+imie_core_cm_index:
+    path:      /cm
+    defaults:  { _controller: IMIECoreBundle:Cm:index }
+
+imie_core_cm_add:
+    path:      /cm/add
+    defaults:  { _controller: IMIECoreBundle:Cm:add }
+
+imie_core_cm_edit:
+    path:      /cm/edit/{id}
+    defaults:  { _controller: IMIECoreBundle:Cm:edit }
+    requirements:
+        id: \d+
+
+imie_core_cm_delete:
+    path:      /cm/delete/{id}
+    defaults:  { _controller: IMIECoreBundle:Cm:delete }
+    requirements:
+        id: \d+
+
+# routeur pour le parc informatique
+
+# routeur materiel
+imie_core_materiel_index:
+    path:      /materiel/{categorie}
+    defaults:  { _controller: IMIECoreBundle:Materiel:index }
+
+imie_core_materiel_add:
+    path:      /materiel/{categorie}/add
+    defaults:  { _controller: IMIECoreBundle:Materiel:add }
+
+imie_core_materiel_edit:
+    path:      /materiel/{categorie}/edit/{id}
+    defaults:  { _controller: IMIECoreBundle:Materiel:edit }
+    requirements:
+        id: \d+
+
+imie_core_materiel_delete:
+    path:      /materiel/{categorie}/delete/{id}
+    defaults:  { _controller: IMIECoreBundle:Materiel:delete }
+    requirements:
+        id: \d+        
+
+imie_core_materiel_salle_index:
+    path:      /materiel/salle/{idSalle}
+    defaults:  
+        _controller: IMIECoreBundle:Materiel:salleIndex
+
+
+
+
+# routeur pour les materiels type
+
+# routeur materiel type
+imie_core_type_materiel:
+    path:      /materiel_type
+    defaults:  { _controller: IMIECoreBundle:TypeMateriel:index }
+    requirements:
+        id: \d+
+
+
+imie_core_type_materiel_index:
+    path:      /materiel_type/{categorie}
+    defaults:  { _controller: IMIECoreBundle:TypeMateriel:index }
+    requirements:
+        id: \d+
+
+imie_core_type_materiel_add:
+    path:      /materiel_type/{categorie}/add
+    defaults:  { _controller: IMIECoreBundle:TypeMateriel:add }
+
+imie_core_type_materiel_edit:
+    path:      /materiel_type/{categorie}/edit/{id}
+    defaults:  { _controller: IMIECoreBundle:TypeMateriel:edit }
+    requirements:
+        id: \d+
+
+imie_core_type_materiel_delete:
+    path:      /materiel_type/{categorie}/delete/{id}
+    defaults:  { _controller: IMIECoreBundle:TypeMateriel:delete }
+    requirements:
+        id: \d+
+
+imie_core_type_materiel_generer:
+    path:      /materiel_type/{categorie}/generer/{id}
+    defaults:  { _controller: IMIECoreBundle:TypeMateriel:generer }
+    requirements:
+        id: \d+
+
+
+# routeur pour le Rest web service
+imie_core_rest_salle_get_all:
+    path:      /rest/salle
+    defaults:  { _controller: IMIECoreBundle:Rest:getAllSalle }
+
+IMIE_core_rest_salle_by_id:
+    path:      /rest/salle/{id}
+    defaults:  { _controller: IMIECoreBundle:Rest:getSalle }
+    requirements:
+        id: \d+
+                                                                      

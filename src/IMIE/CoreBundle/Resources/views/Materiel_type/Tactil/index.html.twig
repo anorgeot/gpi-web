@@ -1,0 +1,35 @@
+{# src/IMIE/CoreBundle/Resources/views/Materiel_type/TypeTactil/index.html.twig #}
+
+
+{% extends "IMIECoreBundle:index.html.twig" %}
+
+{% block title %}
+    Salle - {{ parent() }}
+{% endblock %}
+
+{% block title_table %}
+    Profil peripheriques tactils
+{% endblock %}
+ 
+{% block imiecore_thead %}
+    {{ parent() }}
+{% endblock %}
+
+{% block imiecore_tbody %}
+    {% for typeTactil in listTypeTactil %}
+        <tr>
+            <td>{{ typeTactil.id }}</td>
+            <td>{{ typeTactil.type }}</td>
+            <td>{{ typeTactil.constructeur.nom }}</td>
+            <td>{{ typeTactil.nom }}</td>                       
+        </tr>
+    {% endfor %}
+{% endblock %}
+{% block imiecore_button %}
+    <div id="panelButton">
+        <a id="addLink" href="{{ path('imie_core_home')}}materiel_type/tactil"> {{ include("IMIECoreBundle:Button:ajouter.html.twig") }}</a>
+        <a id="delLink" href="{{ path('imie_core_home')}}materiel_type/tactil"> {{ include("IMIECoreBundle:Button:supprimer.html.twig") }}</a>
+        <a id="editLink" href="{{ path('imie_core_home')}}materiel_type/tactil"> {{ include("IMIECoreBundle:Button:modifier.html.twig") }}</a>
+        <a id="genLink" href="{{ path('imie_core_home')}}materiel_type/tactil">{{ include("IMIECoreBundle:Button:generer.html.twig") }}</a>
+    </div>         
+{% endblock %}         

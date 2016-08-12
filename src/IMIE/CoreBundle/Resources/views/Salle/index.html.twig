@@ -1,0 +1,38 @@
+{# src/IMIE/CoreBundle/Resources/views/Salle/index.html.twig #}
+
+
+{% extends "IMIECoreBundle:index.html.twig" %}
+
+{% block title %}
+    Salle - {{ parent() }}
+{% endblock %}
+
+{% block title_table %}
+    Liste des salles
+{% endblock %}
+ 
+{% block imiecore_thead %}
+    <th>#</th>
+    <th>Nom</th>
+{% endblock %}
+
+{% block imiecore_tbody %}
+    {% for salle in listSalle %}
+        <tr>
+            <td>{{salle.id }}</td>
+            <td>{{salle.nom }}</td>      
+        </tr>
+    {% endfor %}
+{% endblock %}
+
+{% block imiecore_button %}
+<div class="container">
+
+    <div id="panelButton">
+        <a id="addLink" href="{{ path('imie_core_home')}}salle"> {{ include("IMIECoreBundle:Button:ajouter.html.twig") }}</a>
+        <a id="delLink" href="{{ path('imie_core_home')}}salle"> {{ include("IMIECoreBundle:Button:supprimer.html.twig") }}</a>
+        <a id="editLink" href="{{ path('imie_core_home')}}salle"> {{ include("IMIECoreBundle:Button:modifier.html.twig") }}</a>
+    </div>  
+
+</div>         
+{% endblock %}

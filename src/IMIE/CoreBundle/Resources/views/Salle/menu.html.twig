@@ -1,0 +1,23 @@
+{# src/IMIE/CoreBundle/Resources/views/Salle/menu.html.twig #}
+
+
+{% extends "IMIECoreBundle:menu.html.twig" %}
+
+{% block id %}
+{{parent()}}salle
+{% endblock %}  
+
+
+{% block menu_collapse_title %}
+Vue globale
+{% endblock %}
+
+
+{% block menu_collapse_list %}
+		{{parent()}}<a href="{{ path('imie_core_materiel_salle_index',{'idSalle':"all"}) }}">Toutes les salles</a></li>
+    {% for salle in listSalle %}
+		{{parent()}}<a href="{{ path('imie_core_materiel_salle_index',{'idSalle':salle.id}) }}">{{ salle.nom }}</a></li>
+    {% else %}
+        Aucune salle enregistré</li>
+    {% endfor %}
+{% endblock %}

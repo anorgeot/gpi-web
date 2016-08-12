@@ -1,0 +1,245 @@
+/* #59a659  vert directassurance */
+
+
+:root{
+	--colorFond:#ffffff;	/*blanc*/
+
+    --colorSecond01:#6CA701;	/*vert*/
+    --colorSecond02:#437610;	/*vert fonce*/
+    --colorSecond03:#D0F5A9;	/*vert claire*/
+
+    --colorFirst:#333333;   /*noir*/
+
+    --colorPolice1:#444444;     
+
+
+	--color1:#ffffff;	/*blanc*/
+
+    --color2:#6CA701;	/*vert*/
+
+    --color3:#333333;   /*noir*/
+
+
+}
+
+
+html{
+  	min-height:800px;
+}
+ 
+body{
+  	min-height:800px;
+  	position: relative;
+  	color: var( --colorPolice1);
+}
+
+
+ 
+#main{
+  	min-height:800px;
+}
+
+
+h1{
+	font-size:  20px;
+	text-align: center;
+/*	padding-bottom: 10px;*/
+}
+
+th{
+	font-weight: normal;
+}
+.thead-inverse{
+	font-style:normal ;
+}
+
+#footer, #myNavbar, .navbar-default, .navbar-header, .navbar-nav, .navbar-inverse, .navbar-right{
+	color: var( --colorFond);
+	background-color: var( --colorFirst);
+	text-align: center;
+}
+
+#footer{
+	margin-top:25px;
+}
+header {
+	margin-bottom:10px;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus, th, button, .btn-primary{
+
+	color: var( --colorFond);
+	background-color: var( --colorSecond01);
+}
+
+.btn-primary:hover{
+		background-color: var( --colorSecond02);
+}
+.btn-primary:active{
+		background-color: var( --colorFirst);
+}
+
+
+form, img {
+
+	margin-top:12px;
+}
+
+
+#selectRow{
+	background-color: var( --colorSecond03);
+
+}
+
+
+#supprimer, #modifier, #historique, #imprimer, #generer{
+	display:none;
+}
+
+.filters{
+
+	background-color: #e2ebd2;
+	margin-bottom: 1%;
+	height: 100px;
+
+}
+
+
+.filter-content{
+	background-color: var( --color1);
+	color: var( --color2);
+	width: 18%;
+	margin-left: 5%;
+	margin-bottom: 1.1%;
+	/*padding-left: 1%;*/
+	/*box-sizing: border-box;*/
+	border: solid 1px var( --color2);
+	/*float: left;*/
+	display: inline-block;
+
+}
+
+#filtres_title{
+
+	color: var( --color1);
+	background-color: var( --color2);
+	padding-left: 1%;
+}
+
+.filterName{
+	
+	margin: 0;
+	padding: 0;
+	font-size: 105%;
+	font-weight: bold;
+	border: solid 1px var( --color2);
+	text-align: center;
+
+}
+
+.filter-button-item{
+	box-sizing: border-box;
+	display: none;
+	display: block;
+	padding-left: 5%;
+}
+
+.filter-button{
+
+	display: block;
+	/*padding-left: 5%;*/
+	font-size: 115%;
+}
+
+#reset-filters{
+
+	display: block;
+
+}
+
+ul.topnav {
+	list-style: none;
+	padding: 0;	
+	margin: 0;
+	margin-left: 1%;
+	float: left;
+	/*width: 920px;*/
+	background: var( --color1);
+	font-size: 1.2em;
+	/*background: url(topnav_bg.gif) repeat-x;*/
+}
+ul.topnav li {
+	float: left;
+	margin: 0;	
+	padding: 0 15px 0 0;
+	position: relative; /*--Declare X and Y axis base for sub navigation--*/
+	width: 170px;
+}
+ul.topnav li label{
+	padding: 10px 5px;
+	color: var( --color2);
+	display: block;
+	text-decoration: none;
+	/*float: left;*/
+	padding-left: 5%;
+}
+ul.topnav li label:hover{
+	background: #999 no-repeat center top;
+}
+ul.topnav li span { /*--Drop down trigger styles--*/
+	width: 17px;
+	height: 35px;
+	float: left;
+	background: pink no-repeat center top;
+}
+ul.topnav li span.subhover {background-position: center bottom; cursor: pointer;} /*--Hover effect for trigger--*/
+ul.topnav li ul.subnav {
+	list-style: none;
+	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
+	left: 0; top: 35px;
+	background: #333;
+	margin: 0; padding: 0;
+	display: none;
+	float: left;
+	/*width: 170px;*/
+	border: 1px solid #111;
+}
+ul.topnav li ul.subnav li{
+	margin: 0; padding: 0;
+	border-top: 1px solid #252525; /*--Create bevel effect--*/
+	border-bottom: 1px solid #444; /*--Create bevel effect--*/
+	clear: both;
+	/*width: 170px;*/
+}
+html ul.topnav li ul.subnav li a {
+	float: left;
+	/*width: 145px;*/
+	background: #333 no-repeat 10px center;
+	padding-left: 20px;
+}
+html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
+	background: #222 no-repeat 10px center; 
+}
+
+.navfiltername{
+
+	border: 1px solid var( --color2);
+}
+
+ul.topnav h5{
+
+	float: left;
+	padding-left: 40%;
+	padding-right: 10%;
+}
+
+ul.topnav input{
+
+	float: left;
+	margin: 5%;
+}
+
+
+
+
+

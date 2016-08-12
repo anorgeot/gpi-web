@@ -1,0 +1,24 @@
+{# src/OC/PlatformBundle/Resources/views/materiel/formulaire.html.twig #}
+
+{% extends "IMIECoreBundle:formulaire.html.twig" %}
+            
+
+  
+  {% block  group %}  
+      <div class="form-group">
+          <label for="numero">Num de serie :</label>
+          {{ form_errors(form.numero) }}
+          {{ form_widget(form.numero, {'attr': {'class': 'form-control'}}) }}
+      </div>
+
+      <div class="form-group">
+          <label for="typeMateriel">Config : </label>
+          {{ form_errors(form.typeMateriel) }}
+          {{ form_widget(form.typeMateriel, {'attr': {'class': 'form-control'}}) }}
+      </div>
+      <div class="form-group">
+          <label for="salle">Salle :</label>
+          {{ form_errors(form.salle) }}
+          {{ form_widget(form.salle, {'attr': {'class': 'form-control'}}) }}
+      </div>      
+  {% endblock  %}

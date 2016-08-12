@@ -1,0 +1,13 @@
+{# src/OC/PlatformBundle/Resources/views/Salle/formulaire.html.twig #}
+
+{% extends "IMIECoreBundle:formulaire.html.twig" %}
+            
+
+  
+  {% block  group %}  
+      <div class="form-group">
+          <label for="nom">Nom de la salle:</label>
+          {{ form_errors(form.nom) }}
+          {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+      </div>
+  {% endblock  %}

@@ -1,0 +1,117 @@
+{# src/IMIE/CoreBundle/Resources/views/Materiel/Pc/index.html.twig #}
+
+
+{% extends "IMIECoreBundle:index.html.twig" %}
+
+{% block title %}
+    PC - {{ parent() }}
+{% endblock %}
+
+{% block title_table %}
+    {{ parent() }}PC
+{% endblock %}
+ 
+{#  {% block filtres_table %}
+    <div class="filters" id="filters">
+        <h4 id="filtres_title">Les filtres</h4>
+        <!-- filtre Type -->
+        <div class="filter-content">
+            <span class="filter-button with-checkboxes filter-item" data-type="predefined" data-json-field="manufacturerId" ><h5 class="filterName">Type</h5>
+                <span class="filter-button-choice" style="display: none;">
+                    {% for pc in listPc %}
+                        <li class="filter-button-item" id="{{ pc.typeMateriel.type }}">
+                        <input type="checkbox" name="manufacturerId"  value="38" checked="checked" label for="manufacturerId-38"></input>
+                        <label style="font-weight: normal;">{{ pc.typeMateriel.type }}</label>
+                        </li>
+                    {% endfor %}
+                    <span class="filter-select-all-none small" style="padding-left: 5%; display: inline-block;">
+                    Choisir <a class="check-all" href="#">Tous</a> / <a class="check-none" href="#">Aucun</a>
+                    </span>
+                </span>
+            </span>
+        </div>
+        <!-- filtre Marque -->
+        <div class="filter-content">
+            <span class="filter-button with-checkboxes filter-item" data-type="predefined" data-json-field="manufacturerId" ><h5 class="filterName">Marques</h5>
+                <span class="filter-button-choice" style="display: none;">
+                    {% for pc in listPc %}
+                        <li class="filter-button-item" id="{{ pc.typeMateriel.constructeur.nom }}">
+                        <input type="checkbox" name="manufacturerId"  value="38" checked="checked" label for="manufacturerId-38"></input>
+                        <label style="font-weight: normal;">{{ pc.typeMateriel.constructeur.nom }}</label>
+                        </li>
+                    {% endfor %}
+                    <span class="filter-select-all-none small" style="padding-left: 5%; display: inline-block;">
+                    Choisir <a class="check-all" href="#">Tous</a> / <a class="check-none" href="#">Aucun</a>
+                    </span>
+                </span>
+            </span>
+        </div>
+        <div class="filter-content">
+            <span class="filter-button with-checkboxes filter-item" data-type="predefined" data-json-field="manufacturerId" ><h5 class="filterName">Models</h5>
+                <span class="filter-button-choice" style="display: none;">
+                    {% for pc in listPc %}
+                        <li class="filter-button-item" id="{{ pc.typeMateriel.nom }}">
+                        <input type="checkbox" name="manufacturerId"  value="38" checked="checked" label for="manufacturerId-38"></input>
+                        <label style="font-weight: normal;">{{ pc.typeMateriel.nom }}</label>
+                        </li>
+                    {% endfor %}
+                    <span class="filter-select-all-none small" style="padding-left: 5%; display: inline-block;">
+                    Choisir <a class="check-all" href="#">Tous</a> / <a class="check-none" href="#">Aucun</a>
+                    </span>
+                </span>
+            </span>
+        </div>
+        <div class="filter-content">
+            <span class="filter-button with-checkboxes filter-item" data-type="predefined" data-json-field="manufacturerId" ><h5 class="filterName">Salles</h5>
+                <span class="filter-button-choice" style="display: none;">
+                    {% for pc in listPc %}
+                        <li class="filter-button-item" id="{{ pc.salle.nom }}">
+                        <input type="checkbox" name="manufacturerId"  value="38" checked="checked" label for="manufacturerId-38"></input>
+                        <label style="font-weight: normal;">{{ pc.salle.nom }}</label>
+                        </li>
+                    {% endfor %}
+                    <span class="filter-select-all-none small" style="padding-left: 5%; display: inline-block;">
+                    Choisir <a class="check-all" href="#">Tous</a> / <a class="check-none" href="#">Aucun</a>
+                    </span>
+                </span>
+            </span>
+        </div>
+
+        <span id="reset-filters" class="sprite-v4 sprite-reintinalise" style="padding-left: 1%; color:var( --color2); position: relative;">Réinitialiser</span>
+    </div>
+{% endblock %} #}
+
+
+{% block imiecore_thead %}
+    {{ parent() }}
+    <th>N° de serie</th>
+    <th>Processeur</th>
+    <th>Carte Mere</th>
+    <th>Ram (Gb)</th>
+    <th>DD (Gb)</th>
+    <th>Salle</th>
+{% endblock %}
+
+{% block imiecore_tbody %}
+    {% for pc in listPc %}
+        <tr>
+            <td>{{pc.id }}</td>
+            <td>{{pc.typeMateriel.type }}</td>
+            <td>{{pc.typeMateriel.constructeur.nom }}</td>
+            <td>{{pc.typeMateriel.nom }}</td>
+            <td>{{pc.numero }}</td> 
+            <td>{{pc.typeMateriel.processeur.constructeur.nom }} {{ pc.typeMateriel.processeur.nom }}</td>
+            <td>{{pc.typeMateriel.cm.constructeur.nom }} {{ pc.typeMateriel.cm.nom }}</td>
+            <td>{{pc.typeMateriel.ram }}</td> 
+            <td>{{pc.typeMateriel.disque }}</td>
+            <td>{{pc.salle.nom}}</td>                                            
+        </tr>
+    {% endfor %}
+{% endblock %}         
+{% block imiecore_button %}
+    <div id="panelButton">
+        <a id="addLink" href="{{ path('imie_core_home')}}materiel/pc"> {{ include("IMIECoreBundle:Button:ajouter.html.twig") }}</a>
+        <a id="delLink" href="{{ path('imie_core_home')}}materiel/pc"> {{ include("IMIECoreBundle:Button:supprimer.html.twig") }}</a>
+        <a id="editLink" href="{{ path('imie_core_home')}}materiel/pc"> {{ include("IMIECoreBundle:Button:modifier.html.twig") }}</a>
+    </div>       
+{% endblock %}

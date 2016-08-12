@@ -1,0 +1,19 @@
+{# src/IMIE/CoreBundle/Resources/views/materiel/menu.html.twig #}
+
+{% extends "IMIECoreBundle:menu.html.twig" %}
+
+{% block id %}
+{{parent()}}divers
+{% endblock %}  
+
+
+{% block menu_collapse_title %}
+Divers
+{% endblock %}
+
+
+{% block menu_collapse_list %}
+{{parent()}}<a href="{{ path('imie_core_salle_index') }}">Salle</a></li></li>
+{{parent()}}<a href="{{ path('imie_core_constructeur_index') }}">Constructeur</a></li>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{# src/IMIE/CoreBundle/Resources/views/Composant/Socket/index.html.twig #}
+
+
+{% extends "IMIECoreBundle:index.html.twig" %}
+
+{% block title %}
+    Salle - {{ parent() }}
+{% endblock %}
+
+{% block title_table %}
+ Liste des cartes mères
+{% endblock %}
+ 
+{% block imiecore_thead %}
+    <th> # </th>
+    <th> Model</th>
+    <th> Socket</th>
+    <th> Fabricant</th>    
+{% endblock %}
+
+{% block imiecore_tbody %}
+    {% for cm in listCm %}
+        <tr>
+            <td>{{cm.id }}</td>
+            <td>{{cm.nom }}</td>
+            <td>{{cm.socket.constructeur.nom }} {{ cm.socket.nom }}</td>
+            <td>{{cm.constructeur.nom }}</td>
+        </tr>
+    {% endfor %}
+{% endblock %} 
+{% block imiecore_button %}
+    <div id="panelButton">
+        <a id="addLink" href="{{ path('imie_core_home')}}cm"> {{ include("IMIECoreBundle:Button:ajouter.html.twig") }}</a>
+        <a id="delLink" href="{{ path('imie_core_home')}}cm"> {{ include("IMIECoreBundle:Button:supprimer.html.twig") }}</a>
+        <a id="editLink" href="{{ path('imie_core_home')}}cm"> {{ include("IMIECoreBundle:Button:modifier.html.twig") }}</a>
+    </div>      
+{% endblock %}
+
+
+   

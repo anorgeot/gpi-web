@@ -1,0 +1,74 @@
+/********************* Colour reference chart****************
+*************************** comment ********* colour ******** 
+
+Couleur fond       			1              #FFFFFF
+couleur principale          2              #337AB7
+couleur secondaire          3              #123456
+
+*/
+
+
+:root{
+	--color1:#ffffff;
+    --color2:#337AB7;
+/*    --color2:#F4511E;*/
+    --color3:#C9C2BA;
+}
+
+html{
+  	min-height:600px;
+}
+ 
+body{
+  	min-height:600px;
+  	position: relative;
+}
+ 
+
+#main{
+  	min-height:600px;
+}
+
+footer{
+	top: 20px;
+ 	bottom: 0px;
+  	position:relative;
+}
+
+header{
+	background-color: #4F4B46;
+	height: 70px;
+}
+
+th, h1, button, footer, header, #ajouter, #supprimer, #modifier, #historique, #imprimer, #generer {
+
+	color: var( --color1);
+	background-color: var( --color2);
+}
+
+
+form, img, {
+
+	padding-top:25px;
+	padding-bottom:25px;
+}
+
+
+#selectRow{
+	background-color: #C9C2BA;
+
+}
+
+
+#supprimer, #modifier, #historique, #imprimer, #generer{
+	display:none;
+}
+
+#menu {
+	padding-top:55px;
+}
+
+
+
+
+

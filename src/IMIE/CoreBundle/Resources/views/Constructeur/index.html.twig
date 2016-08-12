@@ -1,0 +1,37 @@
+{# src/IMIE/CoreBundle/Resources/views/Salle/index.html.twig #}
+
+
+{% extends "IMIECoreBundle:index.html.twig" %}
+
+{% block title %}
+    Constructeur - {{ parent() }}
+{% endblock %}
+
+{% block title_table %}
+    Liste des constructeurs
+{% endblock %}
+
+{% block filtre %}
+    <!-- CODE FILTRE -->
+{% endblock %}
+ 
+{% block imiecore_thead %}
+    <th>#</th>
+    <th>Nom</th>
+{% endblock %}
+
+{% block imiecore_tbody %}
+    {% for constructeur in listConstructeur %}
+        <tr>
+            <td>{{constructeur.id }}</td>
+            <td>{{constructeur.nom }}</td>
+        </tr>
+    {% endfor %}
+{% endblock %}         
+{% block imiecore_button %}
+    <div id="panelButton">
+        <a id="addLink" href="{{ path('imie_core_home')}}constructeur"> {{ include("IMIECoreBundle:Button:ajouter.html.twig") }}</a>
+        <a id="delLink" href="{{ path('imie_core_home')}}constructeur"> {{ include("IMIECoreBundle:Button:supprimer.html.twig") }}</a>
+        <a id="editLink" href="{{ path('imie_core_home')}}constructeur"> {{ include("IMIECoreBundle:Button:modifier.html.twig") }}</a>
+    </div>         
+{% endblock %}

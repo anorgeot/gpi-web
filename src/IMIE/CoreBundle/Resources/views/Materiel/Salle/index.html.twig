@@ -1,0 +1,37 @@
+{# src/IMIE/CoreBundle/Resources/views/Materiel/salle.html.twig #}
+
+
+{% extends "IMIECoreBundle:index.html.twig" %}
+
+{% block title %}
+    Salle - {{ parent() }}
+{% endblock %}
+
+{% block title_table %}
+    {{ parent() }}Materiel par salle
+{% endblock %}
+ 
+{% block imiecore_thead %}
+    <th>#</th>
+    <th>Categorie</th>
+    <th>Type</th>
+    <th>Marque</th>
+    <th>Model</th>    
+    <th>N° de serie</th>
+    <th>Salle</th>
+     
+{% endblock %}
+
+{% block imiecore_tbody %}
+    {% for materiel in listMateriel %}
+        <tr>
+            <td>{{materiel.id }}</td>            
+            <td>{{materiel.typeMateriel.materiel }}</td>
+            <td>{{materiel.typeMateriel.type }}</td>
+            <td>{{materiel.typeMateriel.constructeur.nom }}</td>
+            <td>{{materiel.typeMateriel.nom }}</td>
+            <td>{{materiel.numero }}</td>
+            <td>{{materiel.salle.nom }}</td>            
+        </tr>
+    {% endfor %}
+{% endblock %}         

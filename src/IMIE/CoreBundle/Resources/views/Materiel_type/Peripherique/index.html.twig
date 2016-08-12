@@ -1,0 +1,35 @@
+{# src/IMIE/CoreBundle/Resources/views/Materiel_type/TypePeripherique/index.html.twig #}
+
+
+{% extends "IMIECoreBundle:index.html.twig" %}
+
+{% block title %}
+    Salle - {{ parent() }}
+{% endblock %}
+
+{% block title_table %}
+    Profil peripheriques
+{% endblock %}
+ 
+{% block imiecore_thead %}
+{{ parent() }}    
+{% endblock %}
+
+{% block imiecore_tbody %}
+    {% for typePeripherique in listTypePeripherique %}
+        <tr>
+            <td>{{typePeripherique.id }}</td>
+            <td>{{typePeripherique.type }}</td>
+            <td>{{typePeripherique.constructeur.nom }}</td> 
+            <td>{{typePeripherique.nom }}</td>                       
+        </tr>
+    {% endfor %}
+{% endblock %}         
+{% block imiecore_button %}
+    <div id="panelButton">
+        <a id="addLink" href="{{ path('imie_core_home')}}materiel_type/peripherique"> {{ include("IMIECoreBundle:Button:ajouter.html.twig") }}</a>
+        <a id="delLink" href="{{ path('imie_core_home')}}materiel_type/peripherique"> {{ include("IMIECoreBundle:Button:supprimer.html.twig") }}</a>
+        <a id="editLink" href="{{ path('imie_core_home')}}materiel_type/peripherique"> {{ include("IMIECoreBundle:Button:modifier.html.twig") }}</a>
+        <a id="genLink" href="{{ path('imie_core_home')}}materiel_type/peripherique">{{ include("IMIECoreBundle:Button:generer.html.twig") }}</a>
+    </div>       
+{% endblock %}

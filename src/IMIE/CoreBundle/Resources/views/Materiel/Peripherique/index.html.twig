@@ -1,0 +1,206 @@
+{# src/IMIE/CoreBundle/Resources/views/Materiel/Peripherique/index.html.twig #}
+
+
+{% extends "IMIECoreBundle:index.html.twig" %}
+
+{% block title %}
+    Peripherique - {{ parent() }}
+{% endblock %}
+
+{% block title_table %}
+    {{ parent() }}Peripheriques divers
+{% endblock %}
+
+
+{% block filtres_table %}
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">  
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Filtre</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">type <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        {% set typeList = [] %}
+                        {% for peripherique in listPeripherique %}
+                            {% if peripherique.typeMateriel.type not in typeList %}
+                                {% set typeList = typeList|merge([peripherique.typeMateriel.type]) %}
+                            {% endif %}
+                        {% endfor %}
+                        {% for type in typeList %}
+                            <li>
+                            <a href="#">   
+                                <input class="checkinput" type="checkbox" name="manufacturerId"  id="{{ type }}" value="38" checked="checked" label for="manufacturerId-38"></input>
+                                <label class="materiel_filtre">{{ type }}</label>
+                            </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+
+
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Marque <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    {% set constructeurList = [] %}
+                    {% for peripherique in listPeripherique %}
+                    {% if peripherique.typeMateriel.constructeur.nom not in constructeurList %}
+                    {% set constructeurList = constructeurList|merge([peripherique.typeMateriel.constructeur.nom]) %}
+                    {% endif %}
+                    {% endfor %}
+                    {% for constructeur in constructeurList %}
+                        <li>
+                        <a href="#"> 
+                            <input class="checkinput" type="checkbox" name="manufacturerId"  id="{{constructeur}}" value="38" checked="checked" label for="manufacturerId-38"></input>
+                            <label class="materiel_filtre">{{constructeur}}</label>
+                        </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+
+
+
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Model <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    {% set modelList = [] %}
+                    {% for peripherique in listPeripherique %}
+                        {% if peripherique.typeMateriel.nom not in modelList %}
+                            {% set modelList = modelList|merge([peripherique.typeMateriel.nom]) %}
+                        {% endif %}
+                    {% endfor %}
+                    {% for model in modelList %}
+                        <li>
+                        <a href="#">     
+                            <input class="checkinput" type="checkbox" name="manufacturerId"  id="{{ model }}" value="38" checked="checked" label for="manufacturerId-38"></input>
+                            <label class="materiel_filtre">{{ model }}</label>
+                        </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+
+
+
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Salle <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    {% set salleList = [] %}
+                    {% for peripherique in listPeripherique %}
+                        {% if peripherique.salle.nom not in salleList %}
+                            {% set salleList = salleList|merge([peripherique.salle.nom]) %}
+                        {% endif %}
+                    {% endfor %}
+                    {% for salle in salleList %}
+                        <li>
+                        <a href="#"> 
+                            <input class="checkinput" type="checkbox" name="manufacturerId"  id="{{ salle }}" value="38" checked="checked" label for="manufacturerId-38"></input>
+                            <label class="materiel_filtre">{{ salle }}</label>
+                        </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>    
+        </ul>
+    </div>
+</nav>
+
+
+<!--             <li class="btn btn-warning">
+    <h5>Type</h5>
+    <ul class="subnav">
+        {% set typeList = [] %}
+        {% for peripherique in listPeripherique %}
+            {% if peripherique.typeMateriel.type not in typeList %}
+                {% set typeList = typeList|merge([peripherique.typeMateriel.type]) %}
+            {% endif %}
+        {% endfor %}
+        {% for type in typeList %}
+            <li>   
+                <input class="checkinput" type="checkbox" name="manufacturerId"  id="{{ type }}" value="38" checked="checked" label for="manufacturerId-38"></input>
+                <label class="materiel_filtre">{{ type }}</label>
+            </li>
+        {% endfor %}
+    </ul>
+</li> -->
+<!--             <li>
+    <button type="button" class="btn btn-warning">
+        <h5>Marque</h5>
+        <ul class="subnav">
+            {% set constructeurList = [] %}
+            {% for peripherique in listPeripherique %}
+                {% if peripherique.typeMateriel.constructeur.nom not in constructeurList %}
+            {       % set constructeurList = constructeurList|merge([peripherique.typeMateriel.constructeur.nom]) %}
+                {% endif %}
+            {% endfor %}
+            {% for constructeur in constructeurList %}
+                <li>
+                    <input class="checkinput" type="checkbox" name="manufacturerId"  id="{{constructeur}}" value="38" checked="checked" label for="manufacturerId-38"></input>
+                    <label class="materiel_filtre">{{constructeur}}</label>
+                </li>
+            {% endfor %}
+        </ul>
+    </button>
+</li>
+<li class="navfiltername">
+    <h5>Model</h5>
+    <ul class="subnav">
+        {% set modelList = [] %}
+        {% for peripherique in listPeripherique %}
+            {% if peripherique.typeMateriel.nom not in modelList %}
+                {% set modelList = modelList|merge([peripherique.typeMateriel.nom]) %}
+            {% endif %}
+        {% endfor %}
+        {% for model in modelList %}
+            <li>
+                <input class="checkinput" type="checkbox" name="manufacturerId"  id="{{ model }}" value="38" checked="checked" label for="manufacturerId-38"></input>
+                <label class="materiel_filtre">{{ model }}</label>
+            </li>
+        {% endfor %}
+    </ul>
+</li>
+<li class="navfiltername">
+    <h5>Salle</h5>
+    <ul class="subnav">
+        {% set salleList = [] %}
+        {% for peripherique in listPeripherique %}
+            {% if peripherique.salle.nom not in salleList %}
+                {% set salleList = salleList|merge([peripherique.salle.nom]) %}
+            {% endif %}
+        {% endfor %}
+        {% for salle in salleList %}
+            <li>
+                <input class="checkinput" type="checkbox" name="manufacturerId"  id="{{ salle }}" value="38" checked="checked" label for="manufacturerId-38"></input>
+                <label class="materiel_filtre">{{ salle }}</label>
+            </li>
+        {% endfor %}
+    </ul>
+</li> -->
+
+{% endblock %}
+
+
+
+ 
+{% block imiecore_thead %}
+    {{ parent() }}
+    <th>N° de serie</th>
+    <th>Salle</th>     
+{% endblock %}
+
+{% block imiecore_tbody %}
+    {% for peripherique in listPeripherique %}
+        <tr>
+            <td>{{peripherique.id}}</td>
+            <td>{{peripherique.typeMateriel.type}}</td>
+            <td>{{peripherique.typeMateriel.constructeur.nom}}</td>
+            <td>{{peripherique.typeMateriel.nom}}</td>
+            <td>{{peripherique.numero}}</td>
+            <td>{{peripherique.salle.nom}}</td>
+        </tr>
+    {% endfor %}
+{% endblock %}         
+{% block imiecore_button %}
+    <div id="panelButton">
+        <a id="addLink" href="{{ path('imie_core_home')}}materiel/peripherique"> {{ include("IMIECoreBundle:Button:ajouter.html.twig") }}</a>
+        <a id="delLink" href="{{ path('imie_core_home')}}materiel/peripherique"> {{ include("IMIECoreBundle:Button:supprimer.html.twig") }}</a>
+        <a id="editLink" href="{{ path('imie_core_home')}}materiel/peripherique"> {{ include("IMIECoreBundle:Button:modifier.html.twig") }}</a>
+    </div>         
+{% endblock %}

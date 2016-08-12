@@ -1,0 +1,42 @@
+{# src/IMIE/CoreBundle/Resources/views/Materiel/Reseau/index.html.twig #}
+
+
+{% extends "IMIECoreBundle:index.html.twig" %}
+
+{% block title %}
+    Reseaux - {{ parent() }}
+{% endblock %}
+
+{% block title_table %}
+    {{ parent() }}Peripheriques Reseaux
+{% endblock %}
+ 
+{% block imiecore_thead %}
+    {{ parent() }}
+    <th>N° de serie</th>
+    <th>Vitesse</th>
+    <th>Nb ports</th>
+    <th>Salle</th>              
+{% endblock %}
+
+{% block imiecore_tbody %}
+    {% for reseau in listReseau %}
+        <tr>
+            <td>{{reseau.id }}</td>
+            <td>{{reseau.typeMateriel.type }}</td>
+            <td>{{reseau.typeMateriel.constructeur.nom }}</td>
+            <td>{{reseau.typeMateriel.nom }}</td>
+            <td>{{reseau.numero }}</td>
+            <td>{{reseau.typeMateriel.vitesse }}</td>
+            <td>{{reseau.typeMateriel.port }}</td>
+            <td>{{reseau.salle.nom }}</td>                             
+        </tr>
+    {% endfor %}
+{% endblock %}  
+{% block imiecore_button %}
+    <div id="panelButton">
+        <a id="addLink" href="{{ path('imie_core_home')}}materiel/reseau"> {{ include("IMIECoreBundle:Button:ajouter.html.twig") }}</a>
+        <a id="delLink" href="{{ path('imie_core_home')}}materiel/reseau"> {{ include("IMIECoreBundle:Button:supprimer.html.twig") }}</a>
+        <a id="editLink" href="{{ path('imie_core_home')}}materiel/reseau"> {{ include("IMIECoreBundle:Button:modifier.html.twig") }}</a>
+    </div>        
+{% endblock %}

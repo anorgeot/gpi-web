@@ -1,0 +1,51 @@
+	h1 {
+		font-family: fantasy;
+		color: #D3B378;
+		font-size: 30px;
+	}
+
+	h2 {
+		font-size: 20px;
+
+	}
+
+
+	body {
+	    background-color: #FFF6CE;
+	}
+
+	header{
+		background-color: #4F4B46;
+		height: 90px;
+	}
+
+	.navbar{
+		background-color: #4F4B46;
+		border-style: none;
+		color: #D3B378;
+	}
+
+
+	form, img, {
+
+		padding-top:25px;
+		padding-bottom:25px;
+	}
+
+	th { 
+		background-color: #4F4B46;
+		color: #D3B378; 
+	}
+
+	#selectRow{
+		background-color: #C9C2BA;
+
+	}
+
+	th:first-child, td:first-child {
+		display:none;
+	}
+
+
+
+

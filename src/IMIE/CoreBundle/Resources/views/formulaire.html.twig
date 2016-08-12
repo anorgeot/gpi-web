@@ -1,0 +1,28 @@
+
+{% extends "IMIECoreBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+    
+    {% stylesheets '@IMIECoreBundle/Resources/public/css/style.css' %}
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+
+    {% endstylesheets %}
+
+{% endblock %} 
+
+
+{% block  form %}
+
+	{{ form_start(form, {'attr': {'class': 'form'}}) }}
+
+	{{ form_errors(form) }}
+
+	{% block  group %}  
+	{% endblock  %}
+	{{ form_widget(form.valider, {'attr': {'class': 'btn btn-primary'}}) }}
+
+	{{ form_rest(form) }}
+	{{ form_end(form) }}
+{% endblock  %}
+

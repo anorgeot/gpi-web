@@ -1,0 +1,47 @@
+{# src/IMIE/CoreBundle/Resources/views/index.html.twig #}
+
+{% extends "IMIECoreBundle::layout.html.twig" %}
+
+{% block titre %}
+    {% block title_table %}
+        Liste 
+    {% endblock %}
+{% endblock %}
+
+
+
+{% block tableau %}
+
+
+    <!-- FILTRE --> 
+ 
+
+            {% block filtres_table %}
+            {% endblock %}
+
+
+
+
+       
+    <!-- TABLEAU -->
+    <table id="table" class='table'>
+        <thead class="thead thead-inverse">
+            <tr>
+                {% block imiecore_thead %}
+                    <th>#</th>
+                    <th>Type</th>    
+                    <th>Marque</th>    
+                    <th>Model</th>
+                {% endblock imiecore_thead %}
+            </tr>
+        </thead>
+        <tbody>
+            {% block imiecore_tbody %}
+            {% endblock imiecore_tbody %}
+        </tbody>          
+    </table>
+    <!-- Bouton -->
+
+
+    
+{% endblock %}
