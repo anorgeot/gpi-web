@@ -2,17 +2,9 @@ imie_user:
     resource: "@IMIEUserBundle/Resources/config/routing.yml"
     prefix:   /
 
-imie_api:
-    resource: "@IMIEApiBundle/Resources/config/routing.yml"
-    prefix:   /api
-
 imie_core:
     resource: "@IMIECoreBundle/Resources/config/routing.yml"
     prefix:   /core
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
